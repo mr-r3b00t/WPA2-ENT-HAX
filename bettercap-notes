@@ -1,0 +1,22 @@
+#Install on Kali (vm or bare metal)
+
+sudo apt install bettercap
+sudo apt install bettercap-ui
+sudo apt install bettercap-caplets
+
+#edit the default creds here
+nano /usr/share/bettercap/caplets/http-ui.cap
+#change the defaults (user:pass)
+
+#disconnect from any wireless networks
+
+bettercap
+#now run the web ui caplet
+http-ui
+#leave this terminal running
+
+
+
+#navigate to http://127.0.0.1:80
+
+#clearly you can use the CLI or the GUI
